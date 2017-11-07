@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Texasnet</p>
+
+<input id="prompt" type="text" onkeypress="return runScript(event)" />
+
+<p id="response"></p>
+
+<script type="text/javascript">
+
+function runScript(e) {
+    if (e.keyCode == 13) {
+        var x = document.getElementById("prompt").value;
+        document.getElementById("response").innerHTML = x;
+    }
+}     
+
+</script>
+
+</body>
+</html> 
