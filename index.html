@@ -12,9 +12,8 @@
 
 function runScript(e) {
     if (e.keyCode == 13) {
-        var x = document.getElementById("prompt").value;
+        document.getElementById("response").textContent = document.getElementById("prompt").value;
         document.getElementById("prompt").value="";
-        document.getElementById("response").innerHTML = x;
     }
 }     
 
