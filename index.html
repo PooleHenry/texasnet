@@ -12,13 +12,12 @@
 
 function runScript(e) {
     if (e.keyCode == 13) {
-        var x = document.getElementById("prompt").value;
-        document.getElementById("prompt").value="";
-        document.getElementById("response").innerHTML = x;
+        var x = document.getElementById("prompt").value; //gets command
+        document.getElementById("prompt").value=""; //resets box to blank
+        var paragraph = document.getElementById("response");
+        var text = document.createTextNode("<br>"+x);
+        paragraph.appendChild(text);
     }
-}     
+}
 
 </script>
-
-</body>
-</html> 
