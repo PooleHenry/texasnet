@@ -9,15 +9,15 @@
 <input id="prompt" type="text" onkeypress="return runScript(event)" />
 
 <script type="text/javascript">
-
 function runScript(e) {
     if (e.keyCode == 13) {
         var x = document.getElementById("prompt").value; //gets command
         document.getElementById("prompt").value=""; //resets box to blank
+        
         var paragraph = document.getElementById("response");
-        var text = document.createTextNode("<br>"+x);
+        var text = document.createTextNode(x);
         paragraph.appendChild(text);
+        paragraph.appendChild(document.createElement("br")); //newline
     }
 }
-
 </script>
