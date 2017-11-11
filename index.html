@@ -47,6 +47,12 @@
           var text = document.createTextNode("shell:~ input$ " + x);
           paragraph.appendChild(text);
           paragraph.appendChild(document.createElement("br")); //newline
+          
+          var clr = x.includes("clr"); //clr (clear) function
+          if (clr == true) {
+            document.getElementById("response").innerHTML = "";
+            putdate();
+          }
         }
       }
 
