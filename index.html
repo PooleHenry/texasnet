@@ -2,32 +2,53 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-            p {
-                font-family: monospace;
-                font-size: 14px;
-            }
-        </style>
-    </head>
-<body>
 
-<h4>Texasnet</h4>
+  <head>
+    <style>
+      p {
+        font-family: monospace;
+        font-size: 14px;
+        color: white;
+      }
+      body {
+        background-color: black;
+      }
+      h4 {
+        color:white
+      }
+    </style>
+  </head>
+
+  <body onload="putdate()">
+
+    <h4>Texasnet</h4>
+
+    <p id="response"></p>
+
+    <input id="prompt" type="text" onkeypress="return runScript(event)" />
+
+    <script type="text/javascript">
+    	
+      function putdate() {
+    	var d = new Date();
+        var date = d.toDateString();
+        var time = d.toLocaleTimeString();
+        var datetime = date+" "+time
+        document.getElementById("response").innerHTML = "Current login: "+datetime+" on ttcs0000";
+         document.getElementById("response").appendChild(document.createElement("br"));   
+      }
     
-<p id="response"></p>
+      function runScript(e) {
+        if (e.keyCode == 13) {
+          var x = document.getElementById("prompt").value; //gets command
+          document.getElementById("prompt").value = ""; //resets box to blank
 
-<input id="prompt" type="text" onkeypress="return runScript(event)" />
+          var paragraph = document.getElementById("response");
+          var text = document.createTextNode("shell:~ input$ " + x);
+          paragraph.appendChild(text);
+          paragraph.appendChild(document.createElement("br")); //newline
+        }
+      }
 
-<script type="text/javascript">
-function runScript(e) {
-    if (e.keyCode == 13) {
-        var x = document.getElementById("prompt").value; //gets command
-        document.getElementById("prompt").value=""; //resets box to blank
-        
-        var paragraph = document.getElementById("response");
-        var text = document.createTextNode(x);
-        paragraph.appendChild(text);
-        paragraph.appendChild(document.createElement("br")); //newline
-    }
-}
-</script>
+    </script>
+
