@@ -62,6 +62,17 @@
           }
         }
       }
+      
+      var prompt=document.getElementById('prompt');
+      prompt.addEventListener('input',e=>{
+        var t=document.createElement('span');
+        t.style.font=getComputedStyle(prompt).font;
+        t.style.whiteSpace='pre';
+        t.textContent=prompt.value;
+        document.body.appendChild(t);
+        prompt.style.width=(t.getBoundingClientRect().width+5)+'px';
+        document.body.removeChild(t);
+      });
 
     </script>
 
